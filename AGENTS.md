@@ -109,6 +109,24 @@ See [docs/02-estrutura-de-diretórios.md](docs/02-estrutura-de-diretórios.md) f
 
 ---
 
+## QA agents (WebdriverIO)
+
+Este projeto usa agentes de QA especializados em **WebdriverIO**. Use-os para manter convenções, adicionar testes/fluxos/dados/fixtures ou revisar código.
+
+| Agent | When to use |
+|-------|-------------|
+| **agt-qa-webdriverio-context** | Dúvidas sobre estrutura, comandos, documentação (não edita código). |
+| **agt-qa-webdriverio-maintain** | Editar specs ou refatorar alinhado às convenções do projeto. |
+| **agt-qa-webdriverio-add-test** | Adicionar um novo teste (browser, app ou E2E). |
+| **agt-qa-webdriverio-add-flow** | Adicionar um novo fluxo (pastas, specs, test-data). |
+| **agt-qa-webdriverio-add-fixture** | Adicionar ou estender fixture em `fixtures/index.ts`. |
+| **agt-qa-webdriverio-add-data** | Adicionar ou estender test-data (inputs.json, builder.ts). |
+| **agt-qa-webdriverio-code-reviewer** | Revisar código QA (specs, test-data, fixtures) e gerar resumo de melhorias. |
+
+Skills correspondentes em [.cursor/skills/qa/](.cursor/skills/qa/): `skill-qa-webdriverio-maintain-conventions`, `skill-qa-webdriverio-add-fixture`, `skill-qa-webdriverio-add-new-flow`, `skill-qa-webdriverio-add-new-test`, `skill-qa-webdriverio-add-test-data`, `skill-qa-webdriverio-code-review`.
+
+---
+
 ## Full documentation
 
 Human-readable docs (structure, fixtures, test-data, lib, how to add tests/flows, env, commands) are in [docs/](docs/). Index: [docs/README.md](docs/README.md).
