@@ -1,7 +1,6 @@
-import type { Browser } from 'webdriverio'
 import { BUNDLE_ID, PACKAGE_NAME } from '../test-data/Constants'
 
-export async function reLaunchApp(emulator: Browser) {
+export async function reLaunchApp(emulator: WebdriverIO.Browser) {
     const identifier = emulator.isAndroid ? PACKAGE_NAME : BUNDLE_ID
 
     const appIdentifier = {

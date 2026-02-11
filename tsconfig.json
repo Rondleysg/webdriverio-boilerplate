@@ -4,9 +4,6 @@
         "allowSyntheticDefaultImports": true,
         "moduleResolution": "node",
         "module": "ESNext",
-        "paths": {
-            "@wdio/globals": ["./node_modules/@wdio/cli/node_modules/@wdio/globals"]
-        },
         "target": "es2022",
         "lib": [
             "es2022",
@@ -14,9 +11,13 @@
         ],
         "types": [
             "node",
+            "@wdio/globals/types",
             "@wdio/mocha-framework",
             "@wdio/appium-service",
-            "webdriverio"
+            "@wdio/mocha-framework",
+            "@wdio/cli",
+            "@wdio/local-runner",
+            "@wdio/spec-reporter",
         ],
         "skipLibCheck": true,
         "noEmit": true,

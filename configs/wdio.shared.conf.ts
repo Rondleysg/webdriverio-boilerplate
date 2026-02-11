@@ -13,7 +13,7 @@ exports.config = {
     runner: 'local',
     tsConfigPath: './tsconfig.json',
 
-    port: 4723,
+    //port: 4723,
     //
     // ==================
     // Specify Test Files
@@ -190,7 +190,7 @@ exports.config = {
           const appState = await emulator.queryAppState(PACKAGE_NAME);
 
           if (appState > 1) {
-            await emulator.terminateApp(PACKAGE_NAME, { appId: PACKAGE_NAME });
+            await emulator.terminateApp(PACKAGE_NAME);
           }
 
           await emulator.activateApp(PACKAGE_NAME);

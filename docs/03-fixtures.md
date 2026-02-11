@@ -40,9 +40,7 @@ describe('Meu fluxo', () => {
 
 ```ts
 // fixtures/index.ts
-import type { Browser } from 'webdriverio'
-
-export async function loginFixture(browser: Browser) {
+export async function loginFixture(browser: WebdriverIO.Browser) {
     // Ex.: preencher campos e clicar em login; esperar home
     const emailInput = await browser.$('~email-input')
     const passwordInput = await browser.$('~password-input')

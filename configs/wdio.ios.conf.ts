@@ -7,24 +7,28 @@ const headless = process.argv.includes('--headless')
 
 const browserOptions = {
     args: [
-        '--allowed-ips',
-        'start-maximized',
-        'disable-gpu',
+        '--start-maximized',
+        '--disable-gpu',
         '--disable-dev-shm-usage',
         '--no-sandbox',
         '--disable-infobars',
-        '--window-size=1280,800',
+        '--window-size=1366,768',
         '--disable-setuid-sandbox',
+        '--remote-debugging-port=9515',
+        '--disable-software-rasterizer',
+        '--disable-gpu-sandbox',
+        '--no-first-run',
+        '--disable-sync',
+        '--disable-extensions',
     ],
 }
 
 if (headless) {
-    browserOptions.args.push('headless=new')
+    browserOptions.args.push('--headless=new')
 }
 
 const browserCap = {
     browserName: 'chrome',
-    'wdio:chromedriverOptions': {},
     'goog:chromeOptions': browserOptions,
 }
 
@@ -46,15 +50,19 @@ const iOSCap = {
 
 config.capabilities = {
     mobile: {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: 4723,
+        path: '/',
         capabilities: iOSCap,
     },
     browser: {
+        automationProtocol: 'webdriver',
         capabilities: browserCap,
     },
 }
 
 config.services = [
-    ['chromedriver'],
     [
         'appium',
         {

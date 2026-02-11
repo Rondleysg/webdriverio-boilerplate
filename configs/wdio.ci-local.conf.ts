@@ -5,23 +5,25 @@ const { config } = require('./wdio.shared.conf')
 
 const browserOptions = {
     args: [
-        '--allowed-ips',
-        'start-maximized',
-        'disable-gpu',
+        '--start-maximized',
+        '--disable-gpu',
         '--disable-dev-shm-usage',
         '--no-sandbox',
         '--disable-infobars',
-        '--window-size=1366,784',
+        '--window-size=1366,768',
         '--disable-setuid-sandbox',
+        '--remote-debugging-port=9515',
+        '--disable-software-rasterizer',
+        '--disable-gpu-sandbox',
+        '--no-first-run',
+        '--disable-sync',
+        '--disable-extensions',
         '--headless=new',
     ],
 }
 
 const browserCap = {
-    protocol: 'http',
-    hostname: '127.0.0.1',
-    port: 9515,
-    path: '/',
+    automationProtocol: 'webdriver',
     capabilities: {
         browserName: 'chrome',
         'goog:chromeOptions': browserOptions,
@@ -57,9 +59,6 @@ config.capabilities = {
 }
 
 config.services = [
-    ['chromedriver', {
-        port: 9515
-      }],
     [
         'appium',
         {
