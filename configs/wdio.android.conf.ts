@@ -1,9 +1,13 @@
-import { getAndroidDeviceName, getAndroidPlatformVersion, getAppPath } from 'lib/env';
+import {
+    getAndroidDeviceName,
+    getAndroidPlatformVersion,
+    getAppPath,
+} from 'lib/env';
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const { config } = require('./wdio.shared.conf')
+const { config } = require('./wdio.shared.conf');
 
-const headless = process.argv.includes('--headless')
+const headless = process.argv.includes('--headless');
 
 const browserOptions = {
     args: [
@@ -21,16 +25,16 @@ const browserOptions = {
         '--disable-sync',
         '--disable-extensions',
     ],
-}
+};
 
 if (headless) {
-    browserOptions.args.push('--headless=new')
+    browserOptions.args.push('--headless=new');
 }
 
 const browserCap = {
     browserName: 'chrome',
     'goog:chromeOptions': browserOptions,
-}
+};
 
 const androidAppPath = getAppPath();
 const androidDeviceName = getAndroidDeviceName();
@@ -47,7 +51,7 @@ const androidCap = {
     'appium:noReset': true,
     'appium:autoGrantPermissions': true,
     'appium:deviceType': 'phone',
-}
+};
 
 config.capabilities = {
     mobile: {
@@ -61,7 +65,7 @@ config.capabilities = {
         automationProtocol: 'webdriver',
         capabilities: browserCap,
     },
-}
+};
 
 config.services = [
     [
@@ -70,6 +74,6 @@ config.services = [
             command: 'appium',
         },
     ],
-]
+];
 
-exports.config = config
+exports.config = config;
