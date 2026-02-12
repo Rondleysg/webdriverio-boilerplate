@@ -1,4 +1,6 @@
 import 'dotenv/config';
+
+import { getValue, setValue } from '@wdio/shared-store-service';
 import { getBaseUrl } from 'lib/env';
 import { getDeviceFromCapabilities } from 'lib/Utils';
 import { PACKAGE_NAME, BUNDLE_ID } from 'test-data/Constants';
@@ -30,6 +32,10 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: ['../test/**/*.ts'],
+
+    services: [
+        'shared-store',
+    ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -218,6 +224,9 @@ exports.config = {
             emulator.isAndroid ? 'mobile: activateApp' : 'mobile: launchApp',
             appPayload,
         );
+
+        const isFirstTime = (await getValue('isFirstTime')) === undefined;
+        await setValue('isFirstTime', isFirstTime);
     },
     /**
      * Runs before a WebdriverIO command gets executed.

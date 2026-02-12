@@ -18,6 +18,7 @@
             "@wdio/cli",
             "@wdio/local-runner",
             "@wdio/spec-reporter",
+            "@wdio/shared-store-service",
         ],
         "skipLibCheck": true,
         "noEmit": true,
