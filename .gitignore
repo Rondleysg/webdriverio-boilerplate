@@ -13,3 +13,7 @@ apps/*.apk
 
 # dotenv environment variables file
 .env
+
+# WebDriverIO
+allure-report/
+allure-results/

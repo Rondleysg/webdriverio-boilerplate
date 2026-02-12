@@ -13,3 +13,4 @@ Documentação do projeto de automação de testes com **WebdriverIO** (browser 
 | [07-como-adicionar-novo-fluxo.md](07-como-adicionar-novo-fluxo.md) | Checklist e passos para um novo fluxo (specs, test-data, config) |
 | [08-ambiente-e-configuração.md](08-ambiente-e-configuração.md) | Variáveis de ambiente, .env, configs WebdriverIO |
 | [09-comandos-e-opcoes.md](09-comandos-e-opcoes.md) | Comandos (test-android, test-ios, headless) e opções de execução |
+| [10-allure-reporter.md](10-allure-reporter.md) | Allure: abrir relatório, epic/feature/story, steps, exemplo e referência |

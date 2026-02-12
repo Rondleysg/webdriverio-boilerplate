@@ -1551,6 +1551,19 @@
     magic-string "^0.30.21"
     pathe "^2.0.3"
 
+"@wdio/allure-reporter@^9.24.0":
+  version "9.24.0"
+  resolved "https://registry.yarnpkg.com/@wdio/allure-reporter/-/allure-reporter-9.24.0.tgz#482184ecf86f05c22f765de917b6f2c264716b24"
+  integrity sha512-s5s9gVTse0YqC1mpNrsJWmd4Kbzh1Cr4qfZlKLVcAtMu5rn21zGQQFY9qiWD66e7p9SfTAyUsfTmYRGoA0+xdg==
+  dependencies:
+    "@types/node" "^20.1.0"
+    "@wdio/reporter" "9.24.0"
+    "@wdio/types" "9.24.0"
+    allure-js-commons "^3.3.2"
+    csv-stringify "^6.0.4"
+    html-entities "^2.6.0"
+    strip-ansi "^7.1.0"
+
 "@wdio/appium-service@^9.23.3":
   version "9.24.0"
   resolved "https://registry.yarnpkg.com/@wdio/appium-service/-/appium-service-9.24.0.tgz#20760824a3414bf39203f7bc0d52ddafe43504e1"
@@ -1851,6 +1864,18 @@ ajv@^6.12.4:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
+
+allure-commandline@^2.36.0:
+  version "2.36.0"
+  resolved "https://registry.yarnpkg.com/allure-commandline/-/allure-commandline-2.36.0.tgz#dae95fbd401d9b6cbfac50fafa7fb67f65f28db2"
+  integrity sha512-ls/4fk2Psv2Tu2PbWFrQPmUnm3gmmO9MBan4MuPWwqdkJPEmln2KRwtvtWYr9Av+e5AnFK1fGXWVyxqJIPiPwA==
+
+allure-js-commons@^3.3.2:
+  version "3.4.5"
+  resolved "https://registry.yarnpkg.com/allure-js-commons/-/allure-js-commons-3.4.5.tgz#d230f7cfcd8f9cb02583d6334edef294c0ee6c6d"
+  integrity sha512-mzAppLFva9PJqWvdI/aXn8jqr+5Am67JITdthMfEk8En6AhsrvRWZAjHZ1yUMDGEbxmivCni3lppvitJGStxFQ==
+  dependencies:
+    md5 "^2.3.0"
 
 ansi-colors@^4.1.3:
   version "4.1.3"
@@ -2462,6 +2487,11 @@ chardet@^2.1.1:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-2.1.1.tgz#5c75593704a642f71ee53717df234031e65373c8"
   integrity sha512-PsezH1rqdV9VvyNhxxOW32/d75r01NY7TQCmOqomRo15ZSOKbpTFVsfjghxo6JloQUCGnH4k1LGu0R4yCLlWQQ==
 
+charenc@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/charenc/-/charenc-0.0.2.tgz#c0a1d2f3a7092e03774bfa83f14c0fc5790a8667"
+  integrity sha512-yrLQ/yVUFXkzg7EDQsPieE/53+0RlaWTs+wBrvW36cyilJ2SaDWfl4Yj7MtLTXleV9uEKefbAGUPv2/iWSooRA==
+
 cheerio-select@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cheerio-select/-/cheerio-select-2.1.0.tgz#4d8673286b8126ca2a8e42740d5e3c4884ae21b4"
@@ -2874,6 +2904,11 @@ cross-spawn@^7.0.3, cross-spawn@^7.0.6:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
+crypt@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/crypt/-/crypt-0.0.2.tgz#88d7ff7ec0dfb86f713dc87bbb42d044d3e6c41b"
+  integrity sha512-mCxBlsHFYh9C+HVpiEacem8FEBnMXgU9gy4zmNC+SXAZNB/1idgp/aulFJ4FgCi7GPEVbfyng092GqL2k2rmow==
+
 crypto-random-string@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-4.0.0.tgz#5a3cc53d7dd86183df5da0312816ceeeb5bb1fc2"
@@ -2916,6 +2951,11 @@ cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
+
+csv-stringify@^6.0.4:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/csv-stringify/-/csv-stringify-6.6.0.tgz#d384859cfb71d0a4a73c5bcc36a4daf5440cb033"
+  integrity sha512-YW32lKOmIBgbxtu3g5SaiqWNwa/9ISQt2EcgOq0+RAIFufFp9is6tqNnKahqE5kuKvrnYAzs28r+s6pXJR8Vcw==
 
 data-uri-to-buffer@^6.0.2:
   version "6.0.2"
@@ -4169,6 +4209,11 @@ hpack.js@^2.1.6:
     readable-stream "^2.0.1"
     wbuf "^1.1.0"
 
+html-entities@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.6.0.tgz#7c64f1ea3b36818ccae3d3fb48b6974208e984f8"
+  integrity sha512-kig+rMn/QOVRvr7c86gQ8lWXq+Hkv6CbAH1hLu+RG338StTpE8Z0b44SDVaqVu7HGKf27frdmUYEs9hTUX/cLQ==
+
 htmlfy@^0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/htmlfy/-/htmlfy-0.8.1.tgz#9066e318a2ee79d7ab2ef83c3953b02a18fa2b14"
@@ -4418,6 +4463,11 @@ is-binary-path@~2.1.0:
   integrity sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==
   dependencies:
     binary-extensions "^2.0.0"
+
+is-buffer@~1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
+  integrity sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==
 
 is-builtin-module@^5.0.0:
   version "5.0.0"
@@ -5145,6 +5195,15 @@ math-intrinsics@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/math-intrinsics/-/math-intrinsics-1.1.0.tgz#a0dd74be81e2aa5c2f27e65ce283605ee4e2b7f9"
   integrity sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==
+
+md5@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/md5/-/md5-2.3.0.tgz#c3da9a6aae3a30b46b7b0c349b87b110dc3bda4f"
+  integrity sha512-T1GITYmFaKuO91vxyoQMFETst+O71VUPEU3ze5GNzDm0OWdP8v1ziTaAEPUr/3kLsY3Sftgz242A1SetQiDL7g==
+  dependencies:
+    charenc "0.0.2"
+    crypt "0.0.2"
+    is-buffer "~1.1.6"
 
 media-typer@^1.1.0:
   version "1.1.0"

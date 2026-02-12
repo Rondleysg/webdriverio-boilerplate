@@ -93,6 +93,12 @@ describe('E2E browser e app', () => {
 
 ---
 
+## Allure
+
+Para relatórios mais elaborados, use o Allure Reporter: importe `allureReporter` de `@wdio/allure-reporter`, defina `addEpic`, `addFeature` e `addStory` (por exemplo em `beforeEach`) e envolva blocos lógicos em `allureReporter.step('nome do passo', async () => { ... })`. Ver [10-allure-reporter.md](10-allure-reporter.md).
+
+---
+
 ## Checklist rápido
 
 - [ ] Arquivo em `test/<fluxo>/` com extensão `.ts` (ex.: `test/login/meuteste.spec.ts`; o config usa `../test/**/*.ts`).
@@ -101,3 +107,4 @@ describe('E2E browser e app', () => {
 - [ ] Dados em `test-data` quando houver inputs reutilizáveis; builder quando precisar variar.
 - [ ] Nome do teste descritivo (cenário + resultado esperado).
 - [ ] Arrange-Act-Assert quando ajudar na leitura.
+- [ ] (Recomendado) Allure: epic/feature/story e `allureReporter.step()` para passos lógicos — ver [10-allure-reporter.md](10-allure-reporter.md).

@@ -67,6 +67,10 @@ See [docs/02-estrutura-de-diretórios.md](docs/02-estrutura-de-diretórios.md) f
 - **Do:** Place specs in `test/specs/` or `test/e2e/` (paths configurable in `configs/wdio.shared.conf.ts`). Use descriptive test names (scenario + expected outcome). Prefer Arrange–Act–Assert.
 - **Do:** Use Page Objects for web and Screen Objects for app; use `lib/Utils` for multiremote access and native selectors (getElementByTestIDApp, etc.).
 
+### Allure Reporter
+
+- **Do:** Use Allure for elaborated reports: import `allureReporter` from `@wdio/allure-reporter`. **Estrutura:** `addEpic` (macro área), `addFeature` (funcionalidade), `addStory` (user story) em `beforeEach`; **steps:** `allureReporter.step('nome', async () => { ... })`. Quando fizer sentido: **addSeverity** (criticidade), **addTag** (smoke/regression/e2e), **addAttachment** (evidências), **addIssue**/ **addTestId** (Jira/TMS), **addArgument** (parâmetros para debug). Tabela "API Allure – quando usar" em [docs/10-allure-reporter.md](docs/10-allure-reporter.md). Config em [configs/wdio.shared.conf.ts](configs/wdio.shared.conf.ts).
+
 ### Environment
 
 - **Do:** Override via `.env` (see [.env.example](.env.example)); config uses `dotenv/config`. Use `lib/env` when baseURL or URLs need to be read from env.
@@ -90,7 +94,7 @@ See [docs/02-estrutura-de-diretórios.md](docs/02-estrutura-de-diretórios.md) f
 
 | File | Purpose |
 |------|---------|
-| [configs/wdio.shared.conf.ts](configs/wdio.shared.conf.ts) | Base config: specs, baseURL, Mocha, hooks (e.g. before with updateSettings for Android). |
+| [configs/wdio.shared.conf.ts](configs/wdio.shared.conf.ts) | Base config: specs, baseURL, Mocha, reporters (Allure), hooks (before, afterTest screenshots, onComplete Allure report). |
 | [configs/wdio.android.conf.ts](configs/wdio.android.conf.ts) | Multiremote capabilities (browser + mobile Android). |
 | [configs/wdio.ios.conf.ts](configs/wdio.ios.conf.ts) | Multiremote capabilities (browser + mobile iOS). |
 | [fixtures/index.ts](fixtures/index.ts) | Reusable fixtures (e.g. loginFixture). |

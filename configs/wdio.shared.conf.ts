@@ -2,6 +2,7 @@ import 'dotenv/config';
 import { getBaseUrl } from 'lib/env';
 import { getDeviceFromCapabilities } from 'lib/Utils';
 import { PACKAGE_NAME, BUNDLE_ID } from 'test-data/Constants';
+const allure = require('allure-commandline');
 
 exports.config = {
     //
@@ -112,7 +113,14 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: ['spec',
+        ['allure', {
+            outputDir: 'allure-results',
+            disableWebdriverStepsReporting: false,
+            disableWebdriverScreenshotsReporting: false,
+            addConsoleLogs: true, // Attach console logs to reports
+        }]
+    ],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -251,8 +259,14 @@ exports.config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+    afterTest: async function (_test: object, _context: object, result: any) {
+        if (result.error || !result.passed) {
+          const myEmulator = getDeviceFromCapabilities('mobile');
+          const myBrowser = getDeviceFromCapabilities('browser');
+          await myEmulator.takeScreenshot();
+          await myBrowser.takeScreenshot();
+        }
+    },
 
     /**
      * Hook that gets executed after the suite has ended
@@ -296,6 +310,24 @@ exports.config = {
      */
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
+    onComplete: function () {
+        const reportError = new Error('Could not generate Allure report');
+        const generation = allure(['generate', 'allure-results', '--clean']);
+        return new Promise<void>((resolve, reject) => {
+          const generationTimeout = setTimeout(() => reject(reportError), 5000);
+    
+          generation.on('exit', function (exitCode: any) {
+            clearTimeout(generationTimeout);
+    
+            if (exitCode !== 0) {
+              return reject(reportError);
+            }
+    
+            console.log('Allure report successfully generated');
+            resolve();
+          });
+        });
+    },
     /**
      * Gets executed when a refresh happens.
      * @param {string} oldSessionId session ID of the old session
